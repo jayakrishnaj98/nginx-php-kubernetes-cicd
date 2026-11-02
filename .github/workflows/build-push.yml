@@ -35,7 +35,7 @@ jobs:
           push: true
           tags: jayakrishnanjk/nginx-php-kubernetes-cicd-nginx:latest
 
-deploy-to-kubernetes:
+  deploy-to-kubernetes:
     needs: build-and-push
     runs-on: ubuntu-latest
 
