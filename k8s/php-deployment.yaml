@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: php-deployment
+  namespace: webapp
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: php
+
+  template:
+    metadata:
+      labels:
+        app: php
+
+    spec:
+      containers:
+        - name: php
+          image: nginx-php-kubernetes-cicd-php:latest
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 9000
