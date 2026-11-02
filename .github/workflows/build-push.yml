@@ -34,3 +34,24 @@ jobs:
           file: ./Dockerfile.nginx
           push: true
           tags: jayakrishnanjk/nginx-php-kubernetes-cicd-nginx:latest
+
+deploy-to-kubernetes:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/nginx-php-kubernetes-cicd
+            git pull origin main
+            kubectl apply -f k8s/
+            kubectl rollout restart deployment/php-deployment -n webapp
+            kubectl rollout restart deployment/nginx-deployment -n webapp
+            kubectl rollout status deployment/php-deployment -n webapp
+            kubectl rollout status deployment/nginx-deployment -n webapp
