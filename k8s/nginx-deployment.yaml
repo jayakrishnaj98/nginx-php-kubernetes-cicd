@@ -20,8 +20,8 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx-php-kubernetes-cicd-nginx:latest
-          imagePullPolicy: IfNotPresent
+          image: jayakrishnanjk/nginx-php-kubernetes-cicd-nginx:latest
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 80
