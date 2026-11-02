@@ -1,7 +1,7 @@
 <?php
 $hostname = gethostname();
 $serverIP = $_SERVER['SERVER_ADDR'] ?? 'Unknown';
-$version = "1.0";
+$version = "2.0";
 
 ?>
 
