@@ -8,7 +8,7 @@ $version = "2.0";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Kubernetes DevOps Project</title>
+    <title>JK Kubernetes DevOps Project</title>
     <style>
         body {
             background: #eef2f7;
