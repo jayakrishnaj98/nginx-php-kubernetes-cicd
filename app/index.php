@@ -42,7 +42,7 @@ $version = "2.0";
 
 <div class="container">
 
-    <h1>Welcome to My DevOps Project!</h1>
+    <h1>Welcome to JK DevOps Project!</h1>
 
     <p>Nginx + PHP Application</p>
 
